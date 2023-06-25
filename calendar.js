@@ -246,24 +246,15 @@ function CalendarControl() {
   
   const calendarControl = new CalendarControl();
 
-// ��� ��� ��������� �����...
-
-// ������������� � API ���� Google Sheets
 const googleSheetsID = '1yt8PEhHC3RwkhHZ3J2fmeeq08rD8PQqvpBeoe3zsICc';
 const apiKey = 'AIzaSyBB3d-roqMCI0H-bE-EoL0a6clMEntWWs0';
 
-// ������� ��� ��������� ������ �� Google Sheets
 function getSchedule(date) {
-  // �������� 'Sheet1!A1:D5' �� �������� �����, ������� �� ������ �������
   const url = `https://sheets.googleapis.com/v4/spreadsheets/${googleSheetsID}/values/Sheet1!AB7:AB8?key=${apiKey}`;
 
   fetch(url)
     .then(response => response.json())
     .then(data => {
-      // ����� �� ������ ���������� ������, ���������� �� Google Sheets
       console.log(data);
     });
 }
-
-// �������� ������� getSchedule ��� ������ ���� � ���������
-// ��������: getSchedule('2023-06-23');
