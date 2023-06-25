@@ -2,7 +2,7 @@
 //Fixed day highlight
 //Added previous month and next month view
 
-const url = 'http://194.67.78.60:8080/api/endpoint';
+const url = 'https://194.67.78.60:8080/api/endpoint';
 
 function CalendarControl() {
     const calendar = new Date();
@@ -73,26 +73,31 @@ function CalendarControl() {
         monthLabel.innerHTML = calendarControl.calMonthName[calendar.getMonth()];
       },
       selectDate: function (e) {
+        const xhr = new XMLHttpRequest();
+          
         const payload = {
           date: (new Date(`${e.target.textContent} ${
             calendarControl.calMonthName[calendar.getMonth()]
           } ${calendar.getFullYear()}`)).toISOString()
         }
 
-        fetch(url, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(payload),
-      })
-          .then(response => response.json())
-          .then(result => {
-              console.log(result);
-          })
-          .catch(error => {
-              console.error('Ошибка:', error);
-          });
+        xhr.open('POST', url);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.withCredentials = true;
+
+        xhr.onload = function() {
+          if (xhr.status === 200) {
+            console.log(xhr.responseText);
+          } else {
+            console.error('Ошибка при выполнении запроса:', xhr.statusText);
+          }
+        };
+
+        xhr.onerror = function() {
+          console.error('Ошибка сети');
+        };
+
+        xhr.send(JSON.stringify(payload))
       },
       plotSelectors: function () {
         document.querySelector(
