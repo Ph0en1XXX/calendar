@@ -145,7 +145,7 @@
 
 .calendar .calendar-inner .calendar-controls .calendar-next a svg path,
 .calendar .calendar-inner .calendar-controls .calendar-prev a svg path{
-    fill: var(--next-prev-arrow-color);
+    fill: var(--tg-theme-text-color);
 }
 
 .calendar .calendar-inner .calendar-body .prev-dates,
