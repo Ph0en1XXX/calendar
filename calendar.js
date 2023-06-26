@@ -2,7 +2,7 @@
 //Fixed day highlight
 //Added previous month and next month view
 
-const url = 'https://194.67.78.60:8080/api/endpoint';
+const client = window.Telegram.WebApp;
 
 function CalendarControl() {
     const calendar = new Date();
@@ -72,32 +72,14 @@ function CalendarControl() {
         );
         monthLabel.innerHTML = calendarControl.calMonthName[calendar.getMonth()];
       },
-      selectDate: function (e) {
-        const xhr = new XMLHttpRequest();
-          
+      selectDate: function (e) {          
         const payload = {
           date: (new Date(`${e.target.textContent} ${
             calendarControl.calMonthName[calendar.getMonth()]
           } ${calendar.getFullYear()}`)).toISOString()
         }
 
-        xhr.open('POST', url);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.withCredentials = true;
-
-        xhr.onload = function() {
-          if (xhr.status === 200) {
-            console.log(xhr.responseText);
-          } else {
-            console.error('Ошибка при выполнении запроса:', xhr.statusText);
-          }
-        };
-
-        xhr.onerror = function() {
-          console.error('Ошибка сети');
-        };
-
-        xhr.send(JSON.stringify(payload))
+        client.sendData(JSON.stringify(payload));
       },
       plotSelectors: function () {
         document.querySelector(
