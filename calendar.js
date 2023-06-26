@@ -3,40 +3,22 @@ const client = window.Telegram.WebApp;
 function CalendarControl() {
 
     const calendar = new Date();
+    const lang = 'ru';
     
     const calendarControl = {
+
       localDate: new Date(),
       prevMonthLastDate: null,
-      calWeekDays: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-      // calWeekDays: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
-      calMonthName: [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec"
-      ],
-      // calMonthName: [
-      //   "Январь",
-      //   "Февраль",
-      //   "Март",
-      //   "Апрель",
-      //   "Май",
-      //   "Июнь",
-      //   "Июль",
-      //   "Август",
-      //   "Сентябрь",
-      //   "Октябрь",
-      //   "Ноябрь",
-      //   "Декабрь"
-      // ],
+
+      calWeekDays: {
+        en: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+        ru: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"]
+      },
+      
+      calMonthName: {
+        en: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        ru: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"]
+      },
       
       daysInMonth: function (month, year) {
         return new Date(year, month, 0).getDate();
@@ -94,14 +76,15 @@ function CalendarControl() {
         let monthLabel = document.querySelector(
           ".calendar .calendar-month-label"
         );
-        monthLabel.innerHTML = calendarControl.calMonthName[calendar.getMonth()];
+        monthLabel.innerHTML = calendarControl.calMonthName[lang][calendar.getMonth()];
       },
 
       selectDate: function (e) {          
         const payload = {
           date: (new Date(`${e.target.textContent} ${
-            calendarControl.calMonthName[calendar.getMonth()]
-          } ${calendar.getFullYear()}`)).toISOString()
+            calendarControl.calMonthName.en[calendar.getMonth()]
+          } ${calendar.getFullYear()}`)).toISOString(),
+          lang: client.initDataUnsafe?.user?.language_code
         }
 
         client.sendData(JSON.stringify(payload));
@@ -120,19 +103,19 @@ function CalendarControl() {
           <div class="calendar-next"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><path fill="#666" d="M38.8 124.2l52.4-52.42L99 64l-7.77-7.78-52.4-52.4-9.8 7.77L81.44 64 29 116.42z"/></svg></a></div>
           </div>
           <div class="calendar-today-date">Сегодня: 
-            ${calendarControl.calWeekDays[calendarControl.localDate.getDay()]}, 
+            ${calendarControl.calWeekDays[lang][calendarControl.localDate.getDay()]}, 
             ${calendarControl.localDate.getDate()}, 
-            ${calendarControl.calMonthName[calendarControl.localDate.getMonth()]} 
+            ${calendarControl.calMonthName[lang][calendarControl.localDate.getMonth()]} 
             ${calendarControl.localDate.getFullYear()}
           </div>
           <div class="calendar-body"></div></div>`;
       },
 
       plotDayNames: function () {
-        for (let i = 0; i < calendarControl.calWeekDays.length; i++) {
+        for (let i = 0; i < calendarControl.calWeekDays[lang].length; i++) {
           document.querySelector(
             ".calendar .calendar-body"
-          ).innerHTML += `<div>${calendarControl.calWeekDays[i]}</div>`;
+          ).innerHTML += `<div>${calendarControl.calWeekDays[lang][i]}</div>`;
         }
       },
 
