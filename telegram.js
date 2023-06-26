@@ -2,7 +2,8 @@ const client = window.Telegram.WebApp;
 
 const closeWindows = () => {
     console.log(client);
-    client.sendData({ text: "123" });
+    client.sendData("gsdfgdfsgdffdgfgdgfd");
+    // client.postEvent('message', '123');
 }
 
 const button = document.getElementById("onClose");
