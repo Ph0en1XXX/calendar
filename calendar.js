@@ -83,9 +83,7 @@ function CalendarControl() {
         const payload = {
           date: (new Date(`${e.target.textContent} ${
             calendarControl.calMonthName.en[calendar.getMonth()]
-          } ${calendar.getFullYear()}`)).toISOString(),
-          lang: client.initDataUnsafe?.user?.language_code,
-          object: client
+          } ${calendar.getFullYear()}`)).toISOString()
         }
 
         client.sendData(JSON.stringify(payload));
