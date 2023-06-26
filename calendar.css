@@ -11,7 +11,7 @@
     --calendar-nextprev-bg-color: transparent;
     --next-prev-arrow-color : #FFF;
     --calendar-border-radius: 16px;
-    --calendar-prevnext-date-color: #484848
+    /* --calendar-prevnext-date-color: #484848 */
 }
 
 * {
@@ -150,7 +150,7 @@
 
 .calendar .calendar-inner .calendar-body .prev-dates,
 .calendar .calendar-inner .calendar-body .next-dates {
-    color: var(--calendar-prevnext-date-color);
+    color: var(--tg-theme-button-color);
 }
 
 .calendar .calendar-inner .calendar-body .prev-dates:hover,
