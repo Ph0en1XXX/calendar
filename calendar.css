@@ -2,7 +2,7 @@
 
 :root {
     /* --calendar-bg-color: #262829; */
-    --calendar-font-color: #FFF;
+    /* --calendar-font-color: #FFF; */
     /* --weekdays-border-bottom-color: #404040; */
     --calendar-date-hover-color: #505050;
     /* --calendar-current-date-color: #1b1f21; */
@@ -25,7 +25,7 @@
     max-width: 400px; /*change as per your design need */
     min-width: 320px;
     background: var(--tg-theme-bg-color);
-    color: var(--calendar-font-color);
+    color: var(--tg-theme-text-color);
     margin: 20px auto;
     box-sizing: border-box;
     overflow: hidden;
@@ -62,7 +62,7 @@
 }
 
 .calendar .calendar-inner .calendar-body div>a {
-    color: var(--calendar-font-color);
+    color: var(--tg-theme-text-color);
     text-decoration: none;
     display: flex;
     justify-content: center;
@@ -127,7 +127,7 @@
 
 .calendar .calendar-inner .calendar-controls .calendar-next a,
 .calendar .calendar-inner .calendar-controls .calendar-prev a {
-    color: var(--calendar-font-color);
+    color: var(--tg-theme-text-color);
     font-family: arial, consolas, sans-serif;
     font-size: 26px;
     text-decoration: none;
