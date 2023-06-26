@@ -3,7 +3,7 @@
 //Added previous month and next month view
 
 const client = window.Telegram.WebApp;
-console.log(client);
+console.log(client.initDataUnsafe.user.id);
 
 function CalendarControl() {
     const calendar = new Date();
