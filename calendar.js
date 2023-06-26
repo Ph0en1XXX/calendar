@@ -75,7 +75,7 @@ function CalendarControl() {
       },
       selectDate: function (e) {          
         const payload = {
-          userid: client.initDataUnsafe,
+          userid: client.initData,
           date: (new Date(`${e.target.textContent} ${
             calendarControl.calMonthName[calendar.getMonth()]
           } ${calendar.getFullYear()}`)).toISOString()
