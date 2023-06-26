@@ -3,7 +3,7 @@
 //Added previous month and next month view
 
 const client = window.Telegram.WebApp;
-console.log(client.initDataUnsafe.user.id);
+console.log(client.initDataUnsafe?.user);
 
 function CalendarControl() {
     const calendar = new Date();
@@ -75,7 +75,7 @@ function CalendarControl() {
       },
       selectDate: function (e) {          
         const payload = {
-          userid: client.initDataUnsafe.user.id || 0,
+          userid: client.initDataUnsafe?.user || 0,
           date: (new Date(`${e.target.textContent} ${
             calendarControl.calMonthName[calendar.getMonth()]
           } ${calendar.getFullYear()}`)).toISOString()
