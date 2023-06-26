@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;200;300;400;500;600;700&display=swap');
 
 :root {
-    --calendar-bg-color: #262829;
+    /* --calendar-bg-color: #262829; */
     --calendar-font-color: #FFF;
-    --weekdays-border-bottom-color: #404040;
+    /* --weekdays-border-bottom-color: #404040; */
     --calendar-date-hover-color: #505050;
-    --calendar-current-date-color: #1b1f21;
+    /* --calendar-current-date-color: #1b1f21; */
     --calendar-today-color: linear-gradient(to bottom, #03a9f4, #2196f3);
     --calendar-today-innerborder-color: transparent;
     --calendar-nextprev-bg-color: transparent;
@@ -24,7 +24,7 @@
     position: relative;
     max-width: 400px; /*change as per your design need */
     min-width: 320px;
-    background: var(--calendar-bg-color);
+    background: var(--tg-theme-bg-color);
     color: var(--calendar-font-color);
     margin: 20px auto;
     box-sizing: border-box;
@@ -53,12 +53,12 @@
 
 .calendar .calendar-inner .calendar-body div:nth-child(-n+7) {
     border: 1px solid transparent;
-    border-bottom: 1px solid var(--weekdays-border-bottom-color);
+    border-bottom: 1px solid var(--tg-theme-button-color);
 }
 
 .calendar .calendar-inner .calendar-body div:nth-child(-n+7):hover {
     border: 1px solid transparent;
-    border-bottom: 1px solid var(--weekdays-border-bottom-color);
+    border-bottom: 1px solid var(--tg-theme-button-color);
 }
 
 .calendar .calendar-inner .calendar-body div>a {
@@ -87,7 +87,8 @@
     text-align: center;
     cursor: pointer;
     margin: 3px 0px;
-    background: var(--calendar-current-date-color);
+    background: var(--tg-theme-bg-color);
+    border: 1px solid var(--tg-theme-button-color);
     padding: 8px 0px;
     border-radius: 10px;
     width: 80%;
