@@ -158,3 +158,12 @@
   border: 1px solid transparent;
   pointer-events: none;
 }
+
+@media only screen and (max-width: 480px) {
+  .calendar .calendar-inner .calendar-body div {
+    font-size: 18px;
+  }
+
+  .calendar .calendar-inner .calendar-today-date {
+    font-size: 16px;
+  }
