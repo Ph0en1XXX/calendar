@@ -159,11 +159,13 @@
   pointer-events: none;
 }
 
-@media only screen and (max-width: 480px) {
-  .calendar .calendar-inner .calendar-body div {
-    font-size: 18px;
-  }
+.calendar {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 16px;
+  max-width: 100%;
+}
 
-  .calendar .calendar-inner .calendar-today-date {
-    font-size: 16px;
-  }
+.calendar-container {
+  display: flex;
+  justify-content: center;
+}
