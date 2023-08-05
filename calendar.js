@@ -264,6 +264,9 @@ function CalendarControl() {
   
 const calendarControl = new CalendarControl();
 
+const calendarContainer = document.querySelector(".calendar");
+calendarContainer.classList.add("calendar-container");
+
 const googleSheetsID = '1yt8PEhHC3RwkhHZ3J2fmeeq08rD8PQqvpBeoe3zsICc';
 const apiKey = 'AIzaSyBB3d-roqMCI0H-bE-EoL0a6clMEntWWs0';
 
