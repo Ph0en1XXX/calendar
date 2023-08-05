@@ -159,13 +159,21 @@
   pointer-events: none;
 }
 
+/* Удалите медиазапрос для устройств с маленькими экранами */
+/* Это позволит сохранить одинаковый размер шрифта для всех экранов */
+
+/* Установите максимальную ширину для календаря */
 .calendar {
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 16px;
   max-width: 100%;
+  /* Другие стили */
 }
 
+/* Установите высоту календаря на 100% от высоты экрана */
 .calendar-container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
