@@ -170,10 +170,20 @@
   /* Другие стили */
 }
 
-/* Установите высоту календаря на 100% от высоты экрана */
+/* Измените стили, чтобы календарь занимал всю ширину экрана */
+.calendar .calendar-inner {
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-weight: normal;
+  border-radius: var(--calendar-border-radius);
+  /* Добавьте следующую строку */
+  max-width: 400px; /* Здесь установите максимальную ширину календаря, чтобы он не растягивался на широких экранах */
+}
+
+/* Если календарь должен быть центрирован на странице, добавьте следующий код */
 .calendar-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
 }
